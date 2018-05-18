@@ -1,0 +1,19 @@
+CC=gcc
+CFLAGS=-W -Wall -ansi -pedantic
+LDFLAGS= -lm
+EXEC=JMbot
+
+all: $(EXEC)
+
+JMbot: JMbot.o
+	$(CC) -o JMbot JMbot.o $(LDFLAGS)
+
+
+main.o: JMbot.c JMbot.h
+	$(CC) -o JMbot.o -c JMbot.c $(CFLAGS)
+
+clean:
+	rm -rf *.o
+
+mrproper: clean
+	rm -rf $(EXEC)
